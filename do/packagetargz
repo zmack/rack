@@ -3,5 +3,5 @@
 release = "rack-#{ARGV[0]}"
 
 system "git archive --format=tar --prefix=#{release}/ HEAD^{tree} >#{release}.tar"
-system "pax -waf #{release}.tar -s ':^:#{release}/:' RDOX SPEC ChangeLog doc"
+system "pax -waf #{release}.tar -s ':^:#{release}/:' RDOX SPEC ChangeLog rack.gemspec doc"
 system "gzip -f -9 #{release}.tar"

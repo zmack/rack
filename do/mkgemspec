@@ -11,7 +11,7 @@ end
 
 def manifest
   files = `git ls-files`.split("\n")
-  files.empty? ? Dir["{lib,test}/**"] + %w(SPEC RDOX) : files
+  files.empty? ? Dir["{lib,test}/**"] + %w(SPEC RDOX rack.gemspec) : files
 end
 
 spec = Gem::Specification.new do |s|
