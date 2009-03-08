@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+system "cd site && git gc"
+system "rsync -avz doc/ chneukirchen@rack.rubyforge.org:/var/www/gforge-projects/rack/doc/"
+system "rsync -avz site/ chneukirchen@rack.rubyforge.org:/var/www/gforge-projects/rack/"
+system "cd site && git push"

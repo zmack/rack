@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+system "specrb -rubygems -Ilib:test -w #{ENV['TEST'] || '-a'} #{ENV['TESTOPTS']}"

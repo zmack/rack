@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+system "do/mkspec"
+
+system(*%w{rdoc --line-numbers --inline-source --main README 
+                --title 'Rack\ Documentation' --charset utf-8 -o doc} +
+                %w{README KNOWN-ISSUES SPEC RDOX} +
+                Dir["lib/**/*.rb"])

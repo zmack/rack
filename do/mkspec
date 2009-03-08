@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+File.open("SPEC", "wb") { |file|
+  IO.foreach("lib/rack/lint.rb") { |line|
+    if line =~ /## (.*)/
+        file.puts $1
+    end
+  }
+}

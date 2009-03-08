@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+version = ARGV[0] || abort("Usage: do/officialrelease VERSION")
+
+# Do everything on a fresh checkout
+system "rm -rf stage"
+system "git clone --shared . stage"
+
+Dir.chdir("stage") {
+  system "do/fulltest"
+  
+  system "do/mkrdox"
+  
+  system "do/mkchangelog"
+  system "do/mkrdoc"
+  
+  system "do/packagetargz", version
+  system "do/packagegem", version
+
+  system "sha1sum rack-#{version}.tar.gz"
+  system "sha1sum rack-#{version}.gem"
+}
+
+system "mv stage/rack-#{version}.tar.gz stage/rack-#{version}.gem ."

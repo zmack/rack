@@ -1,0 +1,48 @@
+This directory contains build scripts for Rack.
+
+They are meant to be executed **from the root** of the Git repository/tarball.
+
+For users:
+
+  do/packagegem [VERSION]
+    make a gem with version defaulting to Rack.release
+    requires RubyGems
+
+  do/packagetargz VERSION
+    make a tarball
+    requires Git, pax, gzip
+
+  do/package VERSION
+    make a tarball and a gem versioned with VERSION
+
+  do/mkrdoc
+    generate RDoc documentation
+
+  do/test
+    run the core test suite
+
+  do/fulltest
+    run the full test suite (this has many dependencies)
+
+For developers/maintainers:
+
+  do/mkgemspec [VERSION]
+    update the gemspec with version defaulting to Rack.release
+    (use this to trigger Github gem rebuilds)
+    requires RubyGems
+
+  do/officialrelease VERSION
+    make a fresh checkout, test *everything* and packages
+    requires RubyGems, Git
+
+  do/pushsite
+    upload the site to RubyForge and GitHub.
+    requires rsync, Git
+
+Various/internal:
+
+  do/mkchangelog
+    generate ChangeLog
+
+  do/mkspec
+    generate the SPEC

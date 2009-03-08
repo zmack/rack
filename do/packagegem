@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+system "do/mkgemspec #{ARGV[0]}"
+system "gem build rack.gemspec"
