@@ -23,7 +23,7 @@ module Rack
     def unescape(s)
       s.tr('+', ' ').gsub(/((?:%[0-9a-fA-F]{2})+)/n){
         [$1.delete('%')].pack('H*')
-      }
+      }.force_encoding(Encoding::UTF_8)
     end
     module_function :unescape
 
