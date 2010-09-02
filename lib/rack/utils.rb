@@ -72,6 +72,7 @@ module Rack
       after = $' || ''
 
       return if k.empty?
+      v.force_encoding(Encoding::UTF_8) if v.respond_to? :force_encoding
 
       if after == ""
         params[k] = v
